@@ -1,0 +1,409 @@
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateSongs (20110816194433)
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "songs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "artist" varchar(255), "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110816194433')
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("songs")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:45:41 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Rendered songs/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 33ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at Tue Aug 16 15:45:47 -0400 2011
+  Processing by SongsController#new as HTML
+Rendered songs/_form.html.erb (55.0ms)
+Rendered songs/new.html.erb within layouts/application (58.7ms)
+Completed 200 OK in 66ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/songs" for 127.0.0.1 at Tue Aug 16 15:46:04 -0400 2011
+  Processing by SongsController#create as HTML
+  Parameters: {"commit"=>"Create Song", "authenticity_token"=>"LlSuBiDEaWqIr98gVF+SLKk68Y0EODzWLrbbskUjebo=", "utf8"=>"\342\234\223", "song"=>{"artist"=>"The Black Keys", "name"=>"Song"}}
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "songs" ("updated_at", "created_at", "artist", "name") VALUES ('2011-08-16 19:46:04.743925', '2011-08-16 19:46:04.743925', 'The Black Keys', 'Song')[0m
+Redirected to http://localhost:3000/songs/1
+Completed 302 Found in 77ms
+
+
+Started GET "/songs/1" for 127.0.0.1 at Tue Aug 16 15:46:04 -0400 2011
+  Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSong Load (0.1ms)[0m  SELECT "songs".* FROM "songs" WHERE "songs"."id" = 1 LIMIT 1
+Rendered songs/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:46:15 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Rendered songs/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs.json" for 127.0.0.1 at Tue Aug 16 15:46:25 -0400 2011
+  Processing by SongsController#index as JSON
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs"
+Completed 406 Not Acceptable in 3ms
+
+
+Started GET "/songs.json" for 127.0.0.1 at Tue Aug 16 15:46:28 -0400 2011
+  Processing by SongsController#index as JSON
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 406 Not Acceptable in 3ms
+
+
+Started GET "/songs.json" for 127.0.0.1 at Tue Aug 16 15:46:30 -0400 2011
+  Processing by SongsController#index as JSON
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs"
+Completed 406 Not Acceptable in 3ms
+
+
+Started GET "/songs.xml" for 127.0.0.1 at Tue Aug 16 15:48:03 -0400 2011
+  Processing by SongsController#index as XML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 200 OK in 65ms (Views: 61.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs.json" for 127.0.0.1 at Tue Aug 16 15:49:59 -0400 2011
+  Processing by SongsController#index as JSON
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs"
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:51:20 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Rendered songs/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at Tue Aug 16 15:51:21 -0400 2011
+  Processing by SongsController#new as HTML
+Rendered songs/_form.html.erb (4.6ms)
+Rendered songs/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:51:23 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs"
+Rendered songs/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:53:08 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.2ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Rendered songs/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Aug 16 15:53:40 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs"
+Rendered songs/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at Tue Aug 16 15:53:45 -0400 2011
+  Processing by SongsController#new as HTML
+Rendered songs/_form.html.erb (4.9ms)
+Rendered songs/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:53:47 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Rendered songs/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs.json" for 127.0.0.1 at Tue Aug 16 15:53:54 -0400 2011
+  Processing by SongsController#index as JSON
+  [1m[35mSong Load (0.4ms)[0m  SELECT "songs".* FROM "songs"
+Completed 200 OK in 11ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at Tue Aug 16 15:55:18 -0400 2011
+  Processing by SongsController#new as HTML
+Rendered songs/_form.html.erb (4.4ms)
+Rendered songs/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/songs" for 127.0.0.1 at Tue Aug 16 15:55:24 -0400 2011
+  Processing by SongsController#create as HTML
+  Parameters: {"commit"=>"Create Song", "authenticity_token"=>"LlSuBiDEaWqIr98gVF+SLKk68Y0EODzWLrbbskUjebo=", "utf8"=>"\342\234\223", "song"=>{"artist"=>"Go Tiger Go", "name"=>"test"}}
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "songs" ("updated_at", "created_at", "name", "artist") VALUES ('2011-08-16 19:55:24.935061', '2011-08-16 19:55:24.935061', 'test', 'Go Tiger Go')[0m
+Redirected to http://localhost:3000/songs/2
+Completed 302 Found in 10ms
+
+
+Started GET "/songs/2" for 127.0.0.1 at Tue Aug 16 15:55:24 -0400 2011
+  Processing by SongsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE "songs"."id" = 2 LIMIT 1
+Rendered songs/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 47ms (Views: 43.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:55:27 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.4ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Rendered songs/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at Tue Aug 16 15:55:28 -0400 2011
+  Processing by SongsController#new as HTML
+Rendered songs/_form.html.erb (4.6ms)
+Rendered songs/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/songs" for 127.0.0.1 at Tue Aug 16 15:55:32 -0400 2011
+  Processing by SongsController#create as HTML
+  Parameters: {"commit"=>"Create Song", "authenticity_token"=>"LlSuBiDEaWqIr98gVF+SLKk68Y0EODzWLrbbskUjebo=", "utf8"=>"\342\234\223", "song"=>{"artist"=>"test", "name"=>"test"}}
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "songs" ("created_at", "updated_at", "artist", "name") VALUES ('2011-08-16 19:55:32.121496', '2011-08-16 19:55:32.121496', 'test', 'test')
+Redirected to http://localhost:3000/songs/3
+Completed 302 Found in 9ms
+
+
+Started GET "/songs/3" for 127.0.0.1 at Tue Aug 16 15:55:32 -0400 2011
+  Processing by SongsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSong Load (0.1ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE "songs"."id" = 3 LIMIT 1[0m
+Rendered songs/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:55:33 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.4ms)[0m  SELECT "songs".* FROM "songs"
+Rendered songs/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/songs.json" for 127.0.0.1 at Tue Aug 16 15:55:37 -0400 2011
+  Processing by SongsController#index as JSON
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at Tue Aug 16 15:55:41 -0400 2011
+  Processing by SongsController#new as HTML
+Rendered songs/_form.html.erb (4.9ms)
+Rendered songs/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/songs" for 127.0.0.1 at Tue Aug 16 15:55:46 -0400 2011
+  Processing by SongsController#create as HTML
+  Parameters: {"commit"=>"Create Song", "authenticity_token"=>"LlSuBiDEaWqIr98gVF+SLKk68Y0EODzWLrbbskUjebo=", "utf8"=>"\342\234\223", "song"=>{"artist"=>"Artist", "name"=>"song"}}
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "songs" ("created_at", "artist", "updated_at", "name") VALUES ('2011-08-16 19:55:46.440729', 'Artist', '2011-08-16 19:55:46.440729', 'song')
+Redirected to http://localhost:3000/songs/4
+Completed 302 Found in 46ms
+
+
+Started GET "/songs/4" for 127.0.0.1 at Tue Aug 16 15:55:46 -0400 2011
+  Processing by SongsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSong Load (0.1ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE "songs"."id" = 4 LIMIT 1[0m
+Rendered songs/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:55:47 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs"
+Rendered songs/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Aug 16 15:57:06 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" LIMIT 3[0m
+Rendered songs/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at Tue Aug 16 15:57:09 -0400 2011
+  Processing by SongsController#new as HTML
+Rendered songs/_form.html.erb (4.1ms)
+Rendered songs/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 47ms (Views: 43.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/songs" for 127.0.0.1 at Tue Aug 16 15:57:12 -0400 2011
+  Processing by SongsController#create as HTML
+  Parameters: {"commit"=>"Create Song", "authenticity_token"=>"LlSuBiDEaWqIr98gVF+SLKk68Y0EODzWLrbbskUjebo=", "utf8"=>"\342\234\223", "song"=>{"artist"=>"asdfasdfsd", "name"=>"asdfafdsd"}}
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "songs" ("updated_at", "artist", "name", "created_at") VALUES ('2011-08-16 19:57:12.760473', 'asdfasdfsd', 'asdfafdsd', '2011-08-16 19:57:12.760473')
+Redirected to http://localhost:3000/songs/5
+Completed 302 Found in 9ms
+
+
+Started GET "/songs/5" for 127.0.0.1 at Tue Aug 16 15:57:12 -0400 2011
+  Processing by SongsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSong Load (0.1ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE "songs"."id" = 5 LIMIT 1[0m
+Rendered songs/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:57:13 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.4ms)[0m  SELECT "songs".* FROM "songs" LIMIT 3
+Rendered songs/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:57:15 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" LIMIT 3[0m
+Rendered songs/index.html.erb within layouts/application (41.2ms)
+Completed 200 OK in 49ms (Views: 45.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:57:16 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.4ms)[0m  SELECT "songs".* FROM "songs" LIMIT 3
+Rendered songs/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:57:17 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" LIMIT 3[0m
+Rendered songs/index.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 44ms (Views: 41.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:59:30 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.4ms)[0m  SELECT "songs".* FROM "songs" ORDER BY created_at desc LIMIT 3
+Rendered songs/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/songs/new" for 127.0.0.1 at Tue Aug 16 15:59:32 -0400 2011
+  Processing by SongsController#new as HTML
+Rendered songs/_form.html.erb (4.1ms)
+Rendered songs/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 43ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/songs" for 127.0.0.1 at Tue Aug 16 15:59:37 -0400 2011
+  Processing by SongsController#create as HTML
+  Parameters: {"commit"=>"Create Song", "authenticity_token"=>"LlSuBiDEaWqIr98gVF+SLKk68Y0EODzWLrbbskUjebo=", "utf8"=>"\342\234\223", "song"=>{"artist"=>"ASDFAEwf", "name"=>"asfewf"}}
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "songs" ("updated_at", "name", "artist", "created_at") VALUES ('2011-08-16 19:59:37.352837', 'asfewf', 'ASDFAEwf', '2011-08-16 19:59:37.352837')[0m
+Redirected to http://localhost:3000/songs/6
+Completed 302 Found in 9ms
+
+
+Started GET "/songs/6" for 127.0.0.1 at Tue Aug 16 15:59:37 -0400 2011
+  Processing by SongsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mSong Load (0.1ms)[0m  SELECT "songs".* FROM "songs" WHERE "songs"."id" = 6 LIMIT 1
+Rendered songs/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 12ms (Views: 7.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:59:38 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.4ms)[0m  [1mSELECT "songs".* FROM "songs" ORDER BY created_at desc LIMIT 3[0m
+Rendered songs/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 16ms (Views: 12.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 15:59:39 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.4ms)[0m  SELECT "songs".* FROM "songs" ORDER BY created_at desc LIMIT 3
+Rendered songs/index.html.erb within layouts/application (42.3ms)
+Completed 200 OK in 48ms (Views: 45.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Aug 16 16:22:21 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" ORDER BY created_at desc LIMIT 3[0m
+Rendered songs/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/songs/6" for 127.0.0.1 at Tue Aug 16 16:22:26 -0400 2011
+  Processing by SongsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LlSuBiDEaWqIr98gVF+SLKk68Y0EODzWLrbbskUjebo=", "id"=>"6"}
+  [1m[35mSong Load (0.1ms)[0m  SELECT "songs".* FROM "songs" WHERE "songs"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "songs" WHERE "songs"."id" = 6[0m
+Redirected to http://localhost:3000/songs
+Completed 302 Found in 11ms
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 16:22:26 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" ORDER BY created_at desc LIMIT 3
+Rendered songs/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/songs/5" for 127.0.0.1 at Tue Aug 16 16:22:28 -0400 2011
+  Processing by SongsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LlSuBiDEaWqIr98gVF+SLKk68Y0EODzWLrbbskUjebo=", "id"=>"5"}
+  [1m[36mSong Load (0.1ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE "songs"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "songs" WHERE "songs"."id" = 5
+Redirected to http://localhost:3000/songs
+Completed 302 Found in 11ms
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 16:22:28 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" ORDER BY created_at desc LIMIT 3[0m
+Rendered songs/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/songs/4" for 127.0.0.1 at Tue Aug 16 16:22:30 -0400 2011
+  Processing by SongsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LlSuBiDEaWqIr98gVF+SLKk68Y0EODzWLrbbskUjebo=", "id"=>"4"}
+  [1m[35mSong Load (0.1ms)[0m  SELECT "songs".* FROM "songs" WHERE "songs"."id" = 4 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "songs" WHERE "songs"."id" = 4[0m
+Redirected to http://localhost:3000/songs
+Completed 302 Found in 11ms
+
+
+Started GET "/songs" for 127.0.0.1 at Tue Aug 16 16:22:30 -0400 2011
+  Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.4ms)[0m  SELECT "songs".* FROM "songs" ORDER BY created_at desc LIMIT 3
+Rendered songs/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 51ms (Views: 10.0ms | ActiveRecord: 0.8ms)
